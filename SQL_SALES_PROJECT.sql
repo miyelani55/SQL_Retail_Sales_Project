@@ -131,8 +131,18 @@ round(avg(age), 2) as average_age
 from retail_sales
 where category = 'Beauty'
 
+--Q5 Write a SQL query to find top 5 customers based on highest total sales
+  
+SELECT 
+    customer_id,
+    SUM(total_sale) as total_sales
+FROM retail_sales
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 5
 
---Q5 wrire a sql query to create each shift and number of otders (moring<=12, afternoon between 12 and 17h000, evening >17h00)
+
+--Q6 wrire a sql query to create each shift and number of otders (moring<=12, afternoon between 12 and 17h000, evening >17h00)
 
 with hourly_sale
 as
